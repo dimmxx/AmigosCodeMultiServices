@@ -11,6 +11,7 @@
 
   <modules>
     <module>customer</module>
+      <module>fraud</module>
   </modules>
 
   <name>amigosservices</name>
@@ -21,8 +22,8 @@
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
 
-    <spring.boot.maven.plugin.version>2.5.7</spring.boot.maven.plugin.version>
-    <spring.boot.maven.dependencies.version>2.5.7</spring.boot.maven.dependencies.version>
+    <spring.boot.maven.plugin.version>2.6.4</spring.boot.maven.plugin.version>
+    <spring.boot.maven.dependencies.version>2.6.4</spring.boot.maven.dependencies.version>
     <projectlombok.version>1.18.22</projectlombok.version>
   </properties>
 
