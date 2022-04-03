@@ -5,4 +5,3 @@
 ███████╗╚██████╔╝██║  ██║███████╗██║  ██╗██║  ██║      ███████║███████╗██║  ██║ ╚████╔╝ ███████╗██║  ██║
 ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝      ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝╚═╝  ╚═╝
 Powered by Spring Boot ${spring-boot.version}
-http://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow&t=Eureka-server
