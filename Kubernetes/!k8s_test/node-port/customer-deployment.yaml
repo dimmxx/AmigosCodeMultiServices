@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-deployment
+  labels:
+    app: label-customer-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: customer-app
+      labels:
+        app: label-customer-app
+    spec:
+      containers:
+        - name: customer-container
+          image: "amigoscode/kubernetes:customer-v1"
+          env:
+            - name: ORDER_SERVICE
+              value: "order-cluster-ip-service"
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: label-customer-app
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: customer-node-port-service
+spec:
+  selector:
+    app: label-customer-app
+  ports:
+    - port: 80
+      targetPort: 8080
+      nodePort: 30000
+  type: NodePort

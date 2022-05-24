@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world
+  labels:
+    app: hello-world
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: hello-world
+      labels:
+        app: hello-world
+    spec:
+      containers:
+        - name: hello-world-container
+          image: "amigoscode/kubernetes:hello-world"
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: hello-world

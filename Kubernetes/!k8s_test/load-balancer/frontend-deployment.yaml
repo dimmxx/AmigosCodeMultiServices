@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    app: label-frontend-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: frontend-app
+      labels:
+        app: label-frontend-app
+    spec:
+      containers:
+        - name: frontend-container
+          image: "amigoscode/kubernetes:frontend-v1"
+          ports:
+            - containerPort: 80
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: label-frontend-app
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: customer-load-balancer-service
+spec:
+  selector:
+    app: label-frontend-app
+  ports:
+    - port: 80
+      targetPort: 80
+  type: LoadBalancer

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "hello-world-meta"
+  namespace: default
+  labels:
+    app: "hello-world"
+    lab: "new_lab"
+spec:
+  containers:
+
+  - name: hello-world-container
+    image: "amigoscode/kubernetes:hello-world"
+    resources:
+      limits:
+        cpu: 500m
+        memory: 500Mi
+    ports:
+    - containerPort:  80
